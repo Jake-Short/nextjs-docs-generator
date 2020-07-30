@@ -10,6 +10,9 @@ console.log(`${chalk.blue('Downloading repository...')}`);
 console.log('');
 
 const internalDir = path.resolve(__dirname);
+if(!fs.existsSync(internalDir + '/.temp')) {
+	fs.mkdirSync(internalDir + '/.temp');
+}
 download('Jake-Short/nextjs-docs-generator#main', `${internalDir}/.temp`, (error) => {
 	if(error) {
 		console.log(`${chalk.red.bold('Error: ')} There was a problem downloading the repository. (${error})`);
@@ -17,9 +20,10 @@ download('Jake-Short/nextjs-docs-generator#main', `${internalDir}/.temp`, (error
 		console.log('');
 	}
 	else {
-		let jsonData = JSON.parse(fs.readFileSync(`${internalDir}/.temp/internal/info.json`, 'utf-8'));
-		let version = jsonData.version;
-		let currVersion = JSON.parse(fs.readFileSync(`${internalDir}/info.json`, 'utf-8')).version;
+		let version = JSON.parse(fs.readFileSync(`${internalDir}/.temp/package.json`, 'utf-8')).version;
+
+		let currPackageContents = JSON.parse(fs.readFileSync(`${internalDir}/package.json`, 'utf-8'));
+		let currVersion = JSON.parse(fs.readFileSync(`${internalDir}/package.json`, 'utf-8')).version;
 
 		if(currVersion === version) {
 			console.log('');
@@ -72,10 +76,12 @@ download('Jake-Short/nextjs-docs-generator#main', `${internalDir}/.temp`, (error
 					// Trigger update
 					if(res.Continue === true) {
 						const baseDir = path.resolve(__dirname, '..');
-		
-						if(!fs.existsSync(internalDir + '/.temp')) {
-							fs.mkdirSync(internalDir + '/.temp');
-						}
+
+						// Update package.json version to new version
+						currPackageContents.version = version;
+						
+						// Write new package.json into site folder
+						fs.writeFileSync(baseDir + '/package.json', JSON.stringify(currPackageContents, null, 4));
 		
 						// Copy selected folders below
 						if(foldersToUpdate.includes('internal')) {

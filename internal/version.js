@@ -2,9 +2,9 @@ const chalk = require('chalk');
 const fs = require('fs');
 const path = require('path');
 
-const internalDir = path.resolve(__dirname);
+const baseDir = path.resolve(__dirname, '..');
 
-let currVersion = JSON.parse(fs.readFileSync(`${internalDir}/info.json`, 'utf-8')).version;
+let currVersion = JSON.parse(fs.readFileSync(`${baseDir}/package.json`, 'utf-8')).version;
 
 console.log('');
 console.log(`You are on version ${chalk.cyan.bold(currVersion)}.`);
