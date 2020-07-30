@@ -5,8 +5,6 @@ const fse = require('fs-extra');
 const path = require('path');
 const download = require('download-git-repo');
 
-/** let jsonData = JSON.parse(fs.readFileSync(parent + '/package.json', 'utf-8')); */
-
 console.log('');
 console.log(`${chalk.blue('Downloading repository...')}`);
 console.log('');
@@ -22,6 +20,17 @@ download('Jake-Short/nextjs-docs-generator#main', `${internalDir}/.temp`, (error
 		let jsonData = JSON.parse(fs.readFileSync(`${internalDir}/.temp/internal/info.json`, 'utf-8'));
 		let version = jsonData.version;
 		let currVersion = JSON.parse(fs.readFileSync(`${internalDir}/info.json`, 'utf-8')).version;
+
+		if(currVersion === version) {
+			console.log('');
+			console.log(`${chalk.cyan('You are on the latest version!')} Aborting update.`);
+			console.log('');
+
+			// Delete .temp directory
+			fse.removeSync(`${internalDir}/.temp`);
+
+			return;
+		}
 
 		console.log('');
 		console.log(`You are upgrading from version ${chalk.cyan.bold(currVersion)} to ${chalk.cyan.bold(version)}.`);
@@ -43,6 +52,10 @@ download('Jake-Short/nextjs-docs-generator#main', `${internalDir}/.temp`, (error
 			if(foldersToUpdate.length < 1) {
 				console.log(`${chalk.cyan(`You didn't select any files!`)} Aborting update.`);
 				console.log('');
+
+				// Delete .temp directory
+				fse.removeSync(`${internalDir}/.temp`);
+
 				return;
 			}
 		
@@ -87,6 +100,10 @@ download('Jake-Short/nextjs-docs-generator#main', `${internalDir}/.temp`, (error
 						console.log(`${chalk.green.bold('Success!')} Your project has been updated.`);
 						console.log('');
 					}
+				}
+				else {
+					// Delete .temp directory
+					fse.removeSync(`${internalDir}/.temp`);
 				}
 			})
 			.catch(error => {
