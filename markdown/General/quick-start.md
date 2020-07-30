@@ -2,9 +2,27 @@
 sidebarText: Quick start
 order: 1
 ---
-# Getting started
+# Getting Started
 
-> Note: The visual and markdown editors are only available on desktop. On mobile, the site will show without editing options.
+> Note: The package manager this project uses is Yarn. If you do not have it, follow the [installation instructions](https://yarnpkg.com/en/docs/install).
+
+First, clone this repository.
+
+`git clone https://github.com/Jake-Short/nextjs-docs-generator.git`\
+\
+Then, CD into the directory, install NPM modules, and run the development server.
+
+```
+cd nextjs-docs-generator
+
+yarn
+
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Developing
 
 To edit the markdown, you can use the button above to switch to markdown mode. You can also 
 open the generated .md file in your favorite code editor.\
@@ -12,15 +30,26 @@ open the generated .md file in your favorite code editor.\
 The .md file is located inside the "markdown" folder in the root of the project. It will have a name similar to the one you 
 entered (spaces are replaced with "-", and non-alphanumeric characters are removed).
 
+>? Note: The markdown editor is only available on desktop. On mobile, the site will show without editing options.
+
 > Note: When using the markdown editor, your changes will automatically be saved a few seconds after you stop typing.
 
+## Building for production
+
+To generate the Next.js site, run `yarn gen`. This will generate the Next.js site inside of the `site` folder. After generating, to build the final Next.js site for production, run:
+```
+cd site
+
+yarn
+
+yarn build
+
+# optionally to run the built site locally
+yarn start
+```
+For more information about Next.js sites, you can visit the [Next.js docs](https://nextjs.org/docs/getting-started).
+
 ## Important notes
-
-### Changes to index.js
-
-Changes to the `/pages/index.js` file will work during development, but will *not* show up in the final build. If you must alter the final index.js file, you may do so in the files `/internal/buildfiles/index.js` and `/internal/buildfiles/[index].js`.
-
->! This is discouraged. You can change the content of the default page inside of the components/indexcontent.js file.
 
 ### Deleting a page
 
