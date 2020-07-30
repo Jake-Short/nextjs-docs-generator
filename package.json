@@ -8,7 +8,8 @@
     "start": "next start",
     "export": "node internal/unavailable.js",
     "generate": "node internal/generate.js",
-    "gen": "node internal/generate.js"
+    "gen": "node internal/generate.js",
+    "update": "node internal/upgrade.js"
   },
   "dependencies": {
     "gray-matter": "^4.0.2",
@@ -23,6 +24,8 @@
   },
   "devDependencies": {
     "chalk": "^4.1.0",
-    "fs-extra": "^9.0.1"
+    "download-git-repo": "^3.0.2",
+    "fs-extra": "^9.0.1",
+    "inquirer": "^7.3.3"
   }
 }
