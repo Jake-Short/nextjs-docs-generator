@@ -78,20 +78,20 @@ function completionHandler(type, params) {
         console.log()
         console.log(`${chalk.bold('Inside that folder, you can run all NextJS commands, such as:')}`)
         console.log()
-        console.log(chalk.cyan(`  npm run dev`))
+        console.log(chalk.cyan(`  yarn dev`))
         console.log('    Starts the development server.')
         console.log()
-        console.log(chalk.cyan(`  npm run build`))
+        console.log(chalk.cyan(`  yarn build`))
         console.log('    Builds the app for production.')
         console.log()
-        console.log(chalk.cyan(`  npm run start`))
+        console.log(chalk.cyan(`  yarn start`))
         console.log('    Runs the built app in production mode.')
         console.log()
         console.log('You can begin by typing:')
         console.log()
         console.log(chalk.cyan('  cd') + ' site')
         console.log(
-            `  ${chalk.cyan(`npm install && npm run dev`)}`
+            `  ${chalk.cyan(`yarn && yarn dev`)}`
         )
         console.log()
     }
