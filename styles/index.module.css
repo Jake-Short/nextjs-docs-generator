@@ -29,18 +29,22 @@
     padding: 0 0 0 302px;
 }
 
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    .content {
-        padding: 0;
-    }
-}
-
 .contentInner {
     flex: 1;
     height: 100%;
 
     padding: 5% 7%;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .content {
+        padding: 0;
+    }
+
+    .contentInner {
+        padding-top: calc(5% + 40px);
+    }
 }
 
 
