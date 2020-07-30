@@ -1,5 +1,9 @@
 # Documentation Generator using Next.js
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Jake-Short/nextjs-docs-generator/graphs/commit-activity)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 Create beautiful documentation quickly, and output an optimized [Next.js](https://nextjs.org/) site. Create and edit markdown files and get a beautiful Next.js site in seconds.
 
 ## Features
@@ -24,12 +28,8 @@ Then, CD into the directory, install NPM modules, and run the development server
 ```
 cd nextjs-docs-generator
 
-npm install
-# or
 yarn
 
-npm run dev
-# or
 yarn dev
 ```
 
