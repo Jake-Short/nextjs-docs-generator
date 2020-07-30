@@ -82,7 +82,7 @@ download('Jake-Short/nextjs-docs-generator#main', `${internalDir}/.temp`, (error
 						}
 
 						// Delete .temp directory
-						fs.unlinkSync(`${internalDir}/.temp`);
+						fse.removeSync(`${internalDir}/.temp`);
 
 						console.log(`${chalk.green.bold('Success!')} Your project has been updated.`);
 						console.log('');
