@@ -9,7 +9,8 @@
     "export": "node internal/unavailable.js",
     "generate": "node internal/generate.js",
     "gen": "node internal/generate.js",
-    "update": "node internal/upgrade.js"
+    "update": "node internal/upgrade.js",
+    "ver": "node internal/version.js"
   },
   "dependencies": {
     "gray-matter": "^4.0.2",
