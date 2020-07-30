@@ -8,19 +8,7 @@ This project is completely open source! Feel free to contribute or create issues
 
 ## Contributing
 
-Contributions are always welcome! To get started, follow these instructions:
-
-1. Fork the repository.
-
-2. Create a new branch for the addition.
-
-3. In the forked repository folder, run `yarn` to install dependencies. Then, run `yarn dev` to start the development server.
-
-4. Make additions and changes to your fork on a new branch.
-
-5. Commit and push your changes to the new branch.
-
-6. Create a pull request!
+Contributions are always welcome! To get started, refer to the [CONTRIBUTING.md](https://github.com/Jake-Short/nextjs-docs-generator/blob/main/CONTRIBUTING.md) file on the [GitHub repository](https://github.com/Jake-Short/nextjs-docs-generator).
 
 ## Creator
 

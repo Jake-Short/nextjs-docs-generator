@@ -6,7 +6,7 @@ order: 3
 
 ## Checking version
 
-To check the version you are on, you can run the command `yarn ver`. This will output something such as `1.0.0`. To view the latest version of the project, view the releases on the [GitHub repository](https://github.com/Jake-Short/nextjs-docs-generator/releases).
+To check the version you are on, you can run the command `yarn ver`. This will output something such as `1.0.0`. To view the latest version of the project, view the [releases](https://github.com/Jake-Short/nextjs-docs-generator/releases) on the [GitHub repository](https://github.com/Jake-Short/nextjs-docs-generator).
 
 ## Updating
 
