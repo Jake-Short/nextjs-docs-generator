@@ -13,20 +13,20 @@ console.log('');
 
 const internalDir = path.resolve(__dirname);
 download('Jake-Short/nextjs-docs-generator#main', `${internalDir}/.temp`, (error) => {
-	let jsonData = JSON.parse(fs.readFileSync(`${internalDir}/.temp/internal/info.json`, 'utf-8'));
-	let version = jsonData.version;
-	let currVersion = JSON.parse(fs.readFileSync(`${internalDir}/info.json`, 'utf-8')).version;
-
-	console.log('');
-	console.log(`You are upgrading from version ${chalk.cyan.bold(currVersion)} to ${chalk.cyan.bold(version)}.`);
-	console.log('');
-
 	if(error) {
 		console.log(`${chalk.red.bold('Error: ')} There was a problem downloading the repository. (${error})`);
 		console.log(`Update aborted.`);
 		console.log('');
 	}
 	else {
+		let jsonData = JSON.parse(fs.readFileSync(`${internalDir}/.temp/internal/info.json`, 'utf-8'));
+		let version = jsonData.version;
+		let currVersion = JSON.parse(fs.readFileSync(`${internalDir}/info.json`, 'utf-8')).version;
+
+		console.log('');
+		console.log(`You are upgrading from version ${chalk.cyan.bold(currVersion)} to ${chalk.cyan.bold(version)}.`);
+		console.log('');
+
 		inquirer.prompt([
 			{
 				type: 'checkbox',
