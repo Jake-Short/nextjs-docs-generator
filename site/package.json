@@ -1,0 +1,26 @@
+{
+    "name": "nextjs-docs-generator",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start",
+        "export": "next export"
+    },
+    "dependencies": {
+        "gray-matter": "^4.0.2",
+        "next": "9.4.4",
+        "next-images": "^1.4.0",
+        "react": "16.13.1",
+        "react-dom": "16.13.1",
+        "react-feather": "^2.0.8",
+        "react-markdown": "^4.3.1",
+        "react-syntax-highlighter": "^13.0.0",
+        "react-textarea-autosize": "^8.2.0"
+    },
+    "devDependencies": {
+        "chalk": "^4.1.0",
+        "fs-extra": "^9.0.1"
+    }
+}

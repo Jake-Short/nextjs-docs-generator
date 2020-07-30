@@ -1,0 +1,185 @@
+.container {
+    width: 100%;
+    height: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.main {
+    flex: 1;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+
+
+
+.content {
+    flex: 1;
+    height: 100%;
+
+    background: var(--main-background-color);
+
+    padding: 0 0 0 302px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .content {
+        padding: 0;
+    }
+}
+
+.contentInner {
+    flex: 1;
+    height: 100%;
+
+    padding: 5% 7%;
+}
+
+
+
+
+/* Development only styling */
+.contentTopButtons {
+    padding: 0 2%;
+
+    border-bottom: solid 2px var(--divider-color);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    height: 70px;
+
+    width: calc(100% - 300px);
+
+    background: var(--main-background-color);
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .contentTopButtons {
+        width: 0px;
+        height: 0px;
+
+        transform: scale(0);
+    }
+}
+
+.switchButton {
+    font-size: 1rem;
+
+    border: none;
+    border-radius: 0.35rem;
+
+    background: var(--dev-accent-color);
+    color: white;
+
+    padding: 0.65rem 1.05rem;
+
+    box-shadow: 0 1px 3px 0 var(--box-shadow-color);
+
+    cursor: pointer;
+
+    transition: ease-in-out 0.12s;
+}
+
+.switchButton:hover {
+    box-shadow: 0 10px 15px -3px var(--box-shadow-color);
+}
+
+.statusText {
+    font-size: 1.1rem;
+
+    margin: 0 0 0 auto;
+}
+
+
+.mdEditor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: calc(5% + 70px) 2% 5% 2%;
+}
+
+.mdTextArea {
+    width: 48%;
+
+    resize: none;
+
+    transition: ease-in-out 0.12s;
+
+    border: solid 1px var(--dev-outline-color);
+    border-radius: 0.15rem;
+
+    padding: 0.35rem 0.5rem;
+
+    font-family: Source Sans Pro,Helvetica Neue,Arial,sans-serif;
+    font-size: 1.05rem;
+
+    color: var(--primary-text-color);
+    background: var(--secondary-background-color);
+}
+
+.mdTextArea:focus {
+    outline: none;
+
+    border: solid 1px var(--dev-accent-color);
+}
+
+.mdEditorResult {
+    width: 48%;
+}
+
+
+
+.themeCardsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.themeCard {
+    width: 30%;
+
+    border: solid 2px var(--divider-color);
+    border-radius: 0.35rem;
+
+
+    transition: ease-in-out 0.12s;
+
+    cursor: pointer;
+
+    padding: 1rem;
+    margin: 0 0 2rem 0;
+}
+
+.themeCard:hover {
+    border: solid 2px var(--dev-accent-color);
+}
+
+.themeCardHeader {
+    font-size: 1.1rem;
+    font-weight: 600;
+
+}
+
+.themeCardBody {
+    font-size: 1rem;
+    font-weight: 400;
+
+    margin: 0.25rem 0 0 0;
+}
