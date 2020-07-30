@@ -3,13 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "node internal/runtimeserver.js",
+    "build": "node internal/unavailable.js",
+    "start": "next start",
+    "export": "node internal/unavailable.js",
+    "generate": "node internal/generate.js",
+    "gen": "node internal/generate.js"
   },
   "dependencies": {
+    "gray-matter": "^4.0.2",
     "next": "9.4.4",
+    "next-images": "^1.4.0",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-feather": "^2.0.8",
+    "react-markdown": "^4.3.1",
+    "react-syntax-highlighter": "^13.0.0",
+    "react-textarea-autosize": "^8.2.0"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "fs-extra": "^9.0.1"
   }
 }

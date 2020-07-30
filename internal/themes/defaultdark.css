@@ -1,0 +1,45 @@
+:root {
+    /* Accent color, (i.e. used for active sidebar links) */
+    --accent-color: rgba(255, 255, 255, 0.9);
+
+    /* Accent color for short code samples (i.e. `index.html`) */
+    --code-accent-color: #5f27cd;
+
+    /* Root font size (all font sizes throughout the site are based on this) */
+    --root-font-size: 14.5px;
+
+    /* Divider color (i.e. used on sidebar) */
+    --divider-color: rgba(28, 30, 35, 1);
+
+    /* Slightly darker divider color (i.e. used on blockquote) */
+    --divider-color-darker: rgba(38, 30, 45, 1);
+
+    /* Main background color of page contents and sidebar */
+    --main-background-color: rgb(10, 10, 10);
+
+    /* Secondary background color (i.e. code blocks) */
+    --secondary-background-color: rgba(30, 30, 30);
+    
+    /* Primary text color */
+    --primary-text-color: rgba(255, 255, 255, 0.9);
+
+    /* Secondary text color */
+    --secondary-text-color: rgba(255, 255, 255, 0.7);
+
+    /* Box shadow colors */
+    --box-shadow-color: rgba(255, 255, 255, 0.1);
+
+    /* Blockquote colors */
+    --alert-blockquote-background: rgba(235, 77, 75, 0.1);
+    --alert-blockquote-border: rgba(235, 77, 75, 1.0);
+
+    --warning-blockquote-background: rgba(253, 203, 110, 0.1);
+    --warning-blockquote-border: rgba(253, 203, 110, 1.0);
+
+
+
+    /* Development-only CSS variables */
+    --dev-accent-color: #5f27cd;
+
+    --dev-outline-color: rgba(255, 255, 255, 0.5);
+}
