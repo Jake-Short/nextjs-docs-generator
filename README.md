@@ -32,7 +32,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 The site will show some documentation to get you started:
 
-<img src="https://imgur.com/RJBcIIY.jpg" width="70%" />
+<kbd>
+<img src="https://imgur.com/RJBcIIY.jpg" />
+</kbd>
+
+## Documentation
+
+You can visit the documentation site at [http://nextjs-docs-generator.vercel.app](http://nextjs-docs-generator.vercel.app). Alternatively, a brief version of the documentation is shown when you clone and run the site.
 
 ## Learn More About Next.js
 
