@@ -91,8 +91,8 @@ export default function Sidebar(props) {
 
 			<div className={styles.topBarMobile}>
 				<div className={styles.topBarMobileInner} style={{ borderColor: `${sidebarShown ? 'var(--divider-color)' : 'transparent'}`, width: `${sidebarShown ? '250px' : '38px'}` }}>
-					<X className={styles.menuBarIcon} style={{ marginLeft: `${sidebarShown ? '212px' : '0'}`, position: `${sidebarShown ? 'unset' : 'absolute'}`, transform: `scale(${sidebarShown ? '1' : '0'})` }} onClick={() => setSidebarShown(!sidebarShown)} size={24} />
-					<Menu className={styles.menuBarIcon} style={{ marginLeft: `${sidebarShown ? '212px' : '0'}`, position: `${sidebarShown ? 'absolute' : 'unset'}`, transform: `scale(${sidebarShown ? '0' : '1'})` }} onClick={() => setSidebarShown(!sidebarShown)} size={24} />
+					<X className={styles.menuBarIcon} style={{ marginLeft: `${sidebarShown ? '212px' : '0'}`, position: `${sidebarShown ? 'unset' : 'absolute'}`, transform: `scale(${sidebarShown ? '1' : '0'})` }} onClick={() => setSidebarShown(!sidebarShown)} size={28} />
+					<Menu className={styles.menuBarIcon} style={{ marginLeft: `${sidebarShown ? '212px' : '0'}`, position: `${sidebarShown ? 'absolute' : 'unset'}`, transform: `scale(${sidebarShown ? '0' : '1'})` }} onClick={() => setSidebarShown(!sidebarShown)} size={28} />
 				</div>
 			</div>
 		</React.Fragment>
