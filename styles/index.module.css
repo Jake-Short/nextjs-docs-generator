@@ -116,10 +116,16 @@
     justify-content: space-between;
 
     padding: calc(5% + 70px) 2% 5% 2%;
+
+    height: 100%;
+    max-height: calc(100vh);
+
+    overflow: hidden;
 }
 
 .mdTextArea {
     width: 48%;
+    max-height: 100%;
 
     resize: none;
 
@@ -145,6 +151,8 @@
 
 .mdEditorResult {
     width: 48%;
+
+    overflow: scroll;
 }
 
 
