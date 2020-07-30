@@ -23,23 +23,47 @@ export async function getStaticProps() {
 	// Get markdown files
 	const mdFiles = fs.readdirSync(markdownDir);
 
+	// { header: "Foo title", order: 1 }
+	var headerOrder = [];
+	var allPostsData = [];
 	// Loop through files and get data
-	const allPostsData = mdFiles.map(fileName => {
-		// Remove ".md" from file name to get id
-		const id = fileName.replace(/\.md$/, '')
-	
-		// Read markdown file as string
-		const fullPath = path.join(markdownDir, fileName)
-		const fileContents = fs.readFileSync(fullPath, 'utf8')
-	
-		// Use gray-matter to parse the post metadata section
-		const matterResult = matter(fileContents)
-	
-		// Combine the data with the id
-		return {
-			id,
-			content: matterResult.content,
-			...matterResult.data
+	mdFiles.forEach(fileName => {
+		if(fs.lstatSync(`${markdownDir}/${fileName}`).isDirectory()) {
+			const mdFilesSub = fs.readdirSync(`${markdownDir}/${fileName}`);
+
+			var subPostsData = [];
+			mdFilesSub.forEach(subFileName => {
+				if(subFileName.startsWith('_')) {
+					if(subFileName === '_order') {
+						const orderContent = fs.readFileSync(`${markdownDir}/${fileName}/${subFileName}`).toString();
+						headerOrder.push({ header: fileName, order: orderContent });
+					}
+
+					return;
+				}
+
+				// Remove ".md" from file name to get id
+				const id = subFileName.replace(/\.md$/, '')
+
+				// Read markdown file as string
+				const fullPath = path.join(`${markdownDir}/${fileName}`, subFileName)
+				const fileContents = fs.readFileSync(fullPath, 'utf8')
+			
+				// Use gray-matter to parse the post metadata section
+				var matterResult = matter(fileContents)
+			
+				matterResult.data.sidebarHeader = fileName;
+				matterResult.data.filePathMD = `/${fileName}/${subFileName}`;
+				matterResult.data.link = `/${path.parse(subFileName).name}`;
+				// Combine the data with the id
+				subPostsData.push({
+					id,
+					content: matterResult.content,
+					...matterResult.data
+				});
+			});
+
+			allPostsData = allPostsData.concat(subPostsData);
 		}
 	});
 
@@ -49,7 +73,8 @@ export async function getStaticProps() {
 			text: item.sidebarText,
 			header: item.sidebarHeader,
 			content: item.content,
-			order: item.order
+			order: item.order,
+			filePathMD: item.filePathMD
 		}
 	});
 
@@ -59,19 +84,27 @@ export async function getStaticProps() {
 
 		// If index is not -1, indicating an object with specified header already exists in array
 		if(indexOfHeaderItem !== -1) {
-			finalSidebarArr[indexOfHeaderItem].content.push({ link: item.link, text: item.text, content: item.content, order: item.order })
+			finalSidebarArr[indexOfHeaderItem].content.push({...item})
 		}
 		else {
 			finalSidebarArr.push({
 				header: item.header,
-				content: [ { link: item.link, text: item.text, content: item.content, order: item.order } ]
+				content: [ {...item} ]
 			})
 		}
 	});
 
 	finalSidebarArr.forEach(item => {
-		item.content.sort((a, b) => (a.order > b.order) ? 1 : -1)
+		item.content.sort((a, b) => (a.order > b.order) ? 1 : -1);
+
+		// Sort headers
+		const headerOrderItem = headerOrder.find(i => i.header === item.header);
+		if(headerOrderItem) {
+			item.order = headerOrderItem.order;
+		}
 	});
+
+	finalSidebarArr.sort((a, b) => (a.order > b.order) ? 1 : -1);
 
     return {
         props: {
