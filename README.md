@@ -1,12 +1,17 @@
 # Documentation Generator using Next.js
 
-This is a project to create documentation for any use case that that outputs a beautiful and optimized [Next.js](https://nextjs.org/) site. Quickly create markdown files and get a beautiful Next.js site in seconds.
+Create beautiful documentation quickly, and output an optimized [Next.js](https://nextjs.org/) site. Create and edit markdown files and get a beautiful Next.js site in seconds.
 
 ## Features
 - Web-based markdown editor with instant results
 - Simple and elegant interface
 - Advanced customizability and styling
 - Powerful Next.js site
+- Easy deployment
+
+## Live Demo
+
+To view an example site built using this project, visit this project's [documentation](http://nextjs-docs-generator.vercel.app/)!
 
 ## Getting Started
 
